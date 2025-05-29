@@ -123,10 +123,13 @@ Before running the Docker Compose setup, you need to configure the environment v
 1. **Using a .env file** (recommended):
 
    - Copy the provided `.env.example` file to create a `.env` file:
+
      ```bash
      cp .env.example .env
      ```
+
    - Edit the `.env` file to set your OpenAI API key and other configuration options:
+
      ```
      # Required for LLM operations
      OPENAI_API_KEY=your_openai_api_key_here
@@ -134,10 +137,12 @@ Before running the Docker Compose setup, you need to configure the environment v
      # Optional: OPENAI_BASE_URL only needed for non-standard OpenAI endpoints
      # OPENAI_BASE_URL=https://api.openai.com/v1
      ```
+
    - The Docker Compose setup is configured to use this file if it exists (it's optional)
 
 2. **Using environment variables directly**:
    - You can also set the environment variables when running the Docker Compose command:
+
      ```bash
      OPENAI_API_KEY=your_key MODEL_NAME=gpt-4.1-mini docker compose up
      ```
@@ -297,20 +302,20 @@ capabilities.
 
 The Graphiti MCP Server container uses the SSE MCP transport. Claude Desktop does not natively support SSE, so you'll need to use a gateway like `mcp-remote`.
 
-1.  **Run the Graphiti MCP server using SSE transport**:
+1. **Run the Graphiti MCP server using SSE transport**:
 
     ```bash
     docker compose up
     ```
 
-2.  **(Optional) Install `mcp-remote` globally**:
+2. **(Optional) Install `mcp-remote` globally**:
     If you prefer to have `mcp-remote` installed globally, or if you encounter issues with `npx` fetching the package, you can install it globally. Otherwise, `npx` (used in the next step) will handle it for you.
 
     ```bash
     npm install -g mcp-remote
     ```
 
-3.  **Configure Claude Desktop**:
+3. **Configure Claude Desktop**:
     Open your Claude Desktop configuration file (usually `claude_desktop_config.json`) and add or modify the `mcpServers` section as follows:
 
     ```json
@@ -330,7 +335,7 @@ The Graphiti MCP Server container uses the SSE MCP transport. Claude Desktop doe
 
     If you already have an `mcpServers` entry, add `graphiti-memory` (or your chosen name) as a new key within it.
 
-4.  **Restart Claude Desktop** for the changes to take effect.
+4. **Restart Claude Desktop** for the changes to take effect.
 
 ## Requirements
 
